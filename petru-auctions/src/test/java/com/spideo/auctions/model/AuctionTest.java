@@ -22,7 +22,7 @@ class AuctionTest {
         assertEquals(0, auction.getMaxBid());
         List<Bidding> biddings = List.of(
                 1, 2, 3
-        ).stream().map(it -> new Bidding((long) it, null, null, it))
+        ).stream().map(it -> new Bidding((long) it, null, null, null, it))
                 .collect(Collectors.toList());
         auction.setBiddings(biddings);
         assertEquals(3, auction.getMaxBid());
