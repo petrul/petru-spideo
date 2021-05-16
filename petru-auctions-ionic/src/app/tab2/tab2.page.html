@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-avatar style="height: 40px; width: 40px; margin-left: 20px; margin-right: 0px;" *ngIf="auctionHouse">
+        <img src="https://picsum.photos/seed/{{auctionHouse.name}}/50" />
+      </ion-avatar>
+    </ion-buttons>
+
+    <ion-title>
+      Auctions <span *ngIf="auctionHouse">for {{auctionHouse.name}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <app-login-signup></app-login-signup>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-list>
+
+    <ion-item
+      button
+      *ngFor="let item of auctions"
+      routerLink="/tabs/tab3/{{item.id}}"
+      routerDirection="forward"
+      >
+
+      <ion-avatar slot="start" >
+        <ion-img src="https://i.pravatar.cc/300?u={{item.seller.name}}"></ion-img>
+      </ion-avatar>
+
+        <div>
+          <h4 class="name">{{item.name}}</h4>
+          <p  class="desc">{{item.description}}</p>
+          <p  class="start-end-time">
+            started by {{item.seller.name}} on {{item.startTime | date:'medium' }} at ${{item.startPrice}} &mdash;
+            <span *ngIf="!item.endTime">in progress</span>
+            <span *ngIf="item.endTime">
+              ends on {{item.endTime | date:'medium' }}
+            </span>
+          </p>
+        </div>
+        <div slot="end">
+          <span class="start-price">${{item.crtPrice}}</span>
+        </div>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="newAuction()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

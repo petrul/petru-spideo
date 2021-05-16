@@ -1,0 +1,32 @@
+ion-title {
+  color: #369;
+  font-weight: bolder;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 100%;
+  color: #369;
+}
+
+.desc {
+  font-style: normal;
+  color:gray;
+  font-size: 90%;
+}
+.start-end-time {
+  font-size: 90%;
+}
+.start-price {
+  margin-left: 50px;
+  font-weight: bolder;
+  font-size: 200%;
+  color:gray;
+}
+
+.start-end-time {
+  color: rgb(5, 25, 44);
+  // border-top: 1px solid rgb(225, 225, 225);
+  // border-bottom: 1px solid lightgray;
+  // background-color: lightgray;
+}

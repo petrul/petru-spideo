@@ -1,0 +1,12 @@
+<ion-chip>
+  <ion-avatar>
+    <div *ngIf="global.login">
+      <ion-img src="https://i.pravatar.cc/300?u={{global.login}}"></ion-img>
+    </div>
+  </ion-avatar>
+
+  <div (click)="openDialogue()">
+    <ion-label *ngIf="global.login">{{global.login}}</ion-label>
+    <ion-label *ngIf="!global.login">Login</ion-label>
+  </div>
+</ion-chip>

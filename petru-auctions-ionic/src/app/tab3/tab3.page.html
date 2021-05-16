@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="previousUrl"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Biddings <span *ngIf="auction"> for {{auction.name}}</span>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <app-login-signup></app-login-signup>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div *ngIf="auction">
+    <div class="crt-price">${{auction.crtPrice}}</div>
+    <div class="desc">{{auction.description}}</div>
+    <div class="by">
+      started by {{auction.seller.name}}
+      at <span class="price">${{auction.startPrice}}</span>
+      on {{auction.startTime}}
+      <span *ngIf="auction.endTime" class="time">, will end on {{auction.endTime}}</span>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content: center; margin-top: 20px;">
+    <ion-button center (click)="bid()">Bid</ion-button>
+  </div>
+
+  <div *ngIf="biddings && biddings.length > 0">
+    <h4 class="ion-text-end" class="history">Bidding history</h4>
+    <ion-list>
+      <ion-item *ngFor="let item of biddings">
+          <div slot="start" class="bid-price">${{item.price}}</div>
+          <div slot="start" class="bid-date">{{item.date | date}}</div>
+          <div slot="end" class="user-name">{{item.user.name}}</div>
+          <ion-avatar slot="end" >
+            <ion-img src="https://i.pravatar.cc/300?u={{item.user.name}}"></ion-img>
+          </ion-avatar>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+

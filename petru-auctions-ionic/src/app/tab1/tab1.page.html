@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title left>Auction houses</ion-title>
+    <ion-buttons slot="end">
+      <app-login-signup></app-login-signup>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+
+  </ion-header> -->
+
+<!-- <hr/> -->
+
+  <div *ngIf="! auctionHouses">
+    <h1>No content</h1>
+  </div>
+
+  <ion-list>
+    <ion-item
+      button
+      *ngFor="let item of auctionHouses"
+      routerLink="/tabs/tab2/{{item.id}}"
+      routerDirection="forward"
+    >
+        <ion-avatar style="margin-right: 10px;">
+          <img src="https://picsum.photos/seed/{{item.name}}/200" />
+        </ion-avatar>
+        <ion-label>{{item.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="newActionHouse()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+<!-- <ion-router-outlet></ion-router-outlet> -->

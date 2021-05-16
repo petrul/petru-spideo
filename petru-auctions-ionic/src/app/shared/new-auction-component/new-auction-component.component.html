@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  <ion-title>New auction</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-input autofocus
+      name="name"
+      [(ngModel)]="name"
+      placeholder="Auction name here"></ion-input>
+
+    <ion-item>
+      <ion-input
+        name="description"
+        [(ngModel)]="description"
+        placeholder="Description"></ion-input>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-item>
+        <ion-label>End Date</ion-label>
+        <ion-datetime
+          value="{{enddate}}"
+          [(ngModel)]="enddate"
+          display-format='MMM D, YYYY h:mm A'
+          picker-format='MMM D, YYYY h:mm A'>
+        </ion-datetime>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+    <ion-item>
+      <ion-label>Starting price $</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="startingprice"
+        placeholder="Fix a starting price."
+      ></ion-input>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+      <ion-button (click)="postAuction()">Create</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
