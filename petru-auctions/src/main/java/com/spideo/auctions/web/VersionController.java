@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @CrossOrigin
 public class VersionController {
 
-    @GetMapping("/api/version")
+    @GetMapping("${spring.data.rest.basePath}/version")
     public @ResponseBody String getVersion() {
         return "0.1";
     }

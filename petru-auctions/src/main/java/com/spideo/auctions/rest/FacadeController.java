@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  *
  */
 @RestController
-@RequestMapping("/api/facade/")
+@RequestMapping("${spring.data.rest.basePath}/facade")
 @CrossOrigin
 public class FacadeController {
     @Autowired
